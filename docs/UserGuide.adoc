@@ -61,7 +61,7 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
 
 [TIP]
 A person can have any number of tags (including 0)
-Email and address are not optional
+Email and address are optional
 
 Examples:
 
