@@ -8,9 +8,9 @@ AddressBook - Level 4 is a desktop address book application used for teaching So
 
 *Code contributed*: [https://github.com[Functional code]] [https://github.com[Test code]] {give links to collated code files}
 
-=== Enhancement Added: 
+=== Enhancement Added:
 V1.0: add colors to tag
-V1.1: make email and address optional when add contact 
+V1.1: make email and address optional when add contact
 
 ==== External behavior
 
@@ -38,9 +38,9 @@ include::../DeveloperGuide.adoc[tag=undoredo]
 
 ---
 
-=== Enhancement Proposed: 
+=== Enhancement Proposed:
 
--For V1.1: the addressbook accepts empty string for now, we could add an internal(private) tag to group the 
+-For V1.1: the addressbook accepts empty string for now, we could add an internal(private) tag to group the
 incomplete contacts together
 
 {Explain similar to the Undo/Redo feature above.}

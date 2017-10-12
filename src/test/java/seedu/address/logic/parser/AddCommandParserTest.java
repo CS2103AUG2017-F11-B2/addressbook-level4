@@ -84,11 +84,11 @@ public class AddCommandParserTest {
         // no email
         assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY
                 + EMAIL_DESC_AMY, new AddCommand(expectedPerson));
-
+        
         // no address
         assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY
                 + ADDRESS_DESC_AMY, new AddCommand(expectedPerson));
-
+        
         // no email and address
         assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_AMY 
                 + PHONE_DESC_AMY, new AddCommand(expectedPerson));
@@ -97,15 +97,15 @@ public class AddCommandParserTest {
     @Test
     public void parse_compulsoryFieldMissing_failure() {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
-
+        
         // missing name prefix
-        assertParseFailure(parser, AddCommand.COMMAND_WORD + VALID_NAME_BOB 
+        assertParseFailure(parser, AddCommand.COMMAND_WORD + VALID_NAME_BOB
                 + PHONE_DESC_BOB, expectedMessage);
-
+        
         // missing phone prefix
         assertParseFailure(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB 
                 + VALID_PHONE_BOB, expectedMessage);
-
+        
         // all prefixes missing
         assertParseFailure(parser, AddCommand.COMMAND_WORD + VALID_NAME_BOB + VALID_PHONE_BOB
                 + VALID_EMAIL_BOB + VALID_ADDRESS_BOB, expectedMessage);

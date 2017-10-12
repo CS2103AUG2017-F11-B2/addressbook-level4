@@ -17,7 +17,6 @@ public class Address {
      * For V1.2(considering the user story), empty string or spaces are considered valid address
      */
     public static final String ADDRESS_VALIDATION_REGEX = ".*";
-    
     public final String value;
 
     /**
