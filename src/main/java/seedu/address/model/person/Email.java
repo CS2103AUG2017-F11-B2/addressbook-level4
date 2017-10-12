@@ -34,10 +34,11 @@ public class Email {
      * Returns if a given string, including an empty string, is a valid person email.
      */
     public static boolean isValidEmail(String test) {
-        if (test.equals("")){
+        if (test.equals("")) {
             return true;
-        } else
-        return test.matches(EMAIL_VALIDATION_REGEX);
+        } else {
+            return test.matches(EMAIL_VALIDATION_REGEX);
+        }
     }
 
     @Override
