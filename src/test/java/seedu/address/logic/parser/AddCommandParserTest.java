@@ -87,7 +87,7 @@ public class AddCommandParserTest {
         assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY
                 + ADDRESS_DESC_AMY, new AddCommand(expectedPerson));
         // no email and address
-        assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_AMY 
+        assertParseSuccess(parser, AddCommand.COMMAND_WORD + NAME_DESC_AMY
                 + PHONE_DESC_AMY, new AddCommand(expectedPerson));
     }
 
@@ -98,7 +98,7 @@ public class AddCommandParserTest {
         assertParseFailure(parser, AddCommand.COMMAND_WORD + VALID_NAME_BOB
                 + PHONE_DESC_BOB, expectedMessage);
         // missing phone prefix
-        assertParseFailure(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB 
+        assertParseFailure(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB
                 + VALID_PHONE_BOB, expectedMessage);
         // all prefixes missing
         assertParseFailure(parser, AddCommand.COMMAND_WORD + VALID_NAME_BOB + VALID_PHONE_BOB
