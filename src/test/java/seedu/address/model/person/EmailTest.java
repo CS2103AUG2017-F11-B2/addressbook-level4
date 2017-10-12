@@ -9,9 +9,9 @@ public class EmailTest {
 
     @Test
     public void isValidEmail() {
-        // blank email
-        assertFalse(Email.isValidEmail("")); // empty string
-        assertFalse(Email.isValidEmail(" ")); // spaces only
+        // blank email is considered valid for V1.2
+        assertTrue(Email.isValidEmail("")); // empty string
+        assertTrue(Email.isValidEmail(" ")); // spaces only
 
         // missing parts
         assertFalse(Email.isValidEmail("@example.com")); // missing local part

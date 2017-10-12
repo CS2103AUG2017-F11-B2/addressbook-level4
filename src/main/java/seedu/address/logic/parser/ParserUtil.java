@@ -76,7 +76,7 @@ public class ParserUtil {
      */
     public static Optional<Email> parseEmail(Optional<String> email) throws IllegalValueException {
         requireNonNull(email);
-        return email.isPresent() ? Optional.of(new Email(email.get())) : Optional.empty();
+        return email.isPresent() ? Optional.of(new Email(email.get())) : Optional.of(new Email(""));
     }
 
     /**
