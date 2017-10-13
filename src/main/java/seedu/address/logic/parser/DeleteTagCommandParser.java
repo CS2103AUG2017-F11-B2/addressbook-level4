@@ -19,7 +19,7 @@ public class DeleteTagCommandParser implements Parser<DeleteTagCommand> {
      */
     public DeleteTagCommand parse(String args) throws ParseException {
          try {
-           Tag targetTag = new Tag(args);
+            Tag targetTag = new Tag(args);
             return new DeleteTagCommand(targetTag);
          } catch (IllegalValueException ab) {
             throw new ParseException(
