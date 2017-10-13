@@ -16,14 +16,10 @@ public class DeleteTagCommandParser implements Parser<DeleteTagCommand> {
      * and returns an DeleteTagCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
+    public static Tag tag = null;
     public DeleteTagCommand parse(String args) throws ParseException {
         try {
-            int lengthOfUserInput = args.split(" ").length;
-            if (lengthOfUserInput > 2 || lengthOfUserInput <= 1) {
-                throw new ParseException("wrong command format");
-            }
-            String tagFromUser = args.split(" ")[1];
-            Tag tag = new Tag(tagFromUser);
+            tag = new Tag(args);
             return new DeleteTagCommand(tag);
         } catch (IllegalValueException ab) {
             throw new ParseException(
