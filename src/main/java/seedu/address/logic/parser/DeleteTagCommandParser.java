@@ -16,7 +16,6 @@ public class DeleteTagCommandParser implements Parser<DeleteTagCommand> {
      * and returns an DeleteTagCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-
     public DeleteTagCommand parse(String args) throws ParseException {
         try {
            Tag targetTag = new Tag(args);
