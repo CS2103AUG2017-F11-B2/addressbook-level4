@@ -11,7 +11,7 @@ import seedu.address.model.tag.Tag;
 public class DeleteTagCommand extends UndoableCommand {
 
     public static final String COMMAND_WORD = "tagDelete";
-    public static final String COMMAND_ALIAS = "t";
+    public static final String COMMAND_ALIAS = "td";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes all the tag specified in all person in the list.\n"
@@ -20,7 +20,7 @@ public class DeleteTagCommand extends UndoableCommand {
 
     public static final String MESSAGE_DELETE_ALL_TAG_SUCCESS = "Deleted tag: %1$s";
 
-    private final Tag targetTag;
+    public final Tag targetTag;
 
     public DeleteTagCommand(Tag tag) {
         this.targetTag = tag;
