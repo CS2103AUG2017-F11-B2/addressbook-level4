@@ -66,7 +66,7 @@ public class ParserUtil {
      */
     public static Optional<Address> parseAddress(Optional<String> address) throws IllegalValueException {
         requireNonNull(address);
-        return address.isPresent() ? Optional.of(new Address(address.get())) : Optional.of(new Address(""));
+        return address.isPresent() ? Optional.of(new Address(address.get())) : Optional.empty();
     }
 
     /**

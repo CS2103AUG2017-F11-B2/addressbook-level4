@@ -9,10 +9,6 @@ public class EmailTest {
 
     @Test
     public void isValidEmail() {
-        // blank email is considered valid for V1.2
-        assertTrue(Email.isValidEmail("")); // empty string
-        assertTrue(Email.isValidEmail(" ")); // spaces only
-
         // missing parts
         assertFalse(Email.isValidEmail("@example.com")); // missing local part
         assertFalse(Email.isValidEmail("peterjackexample.com")); // missing '@' symbol
@@ -27,6 +23,10 @@ public class EmailTest {
         assertFalse(Email.isValidEmail("peter@jack@example.com")); // '@' symbol in local part
         assertFalse(Email.isValidEmail("peterjack@example@com")); // '@' symbol in domain name
 
+        // blank email is considered valid for V1.2
+        assertTrue(Email.isValidEmail("")); // empty string
+        assertFalse(Email.isValidEmail(" ")); // spaces only
+        
         // valid email
         assertTrue(Email.isValidEmail("PeterJack_1190@example.com"));
         assertTrue(Email.isValidEmail("a@b"));  // minimal
