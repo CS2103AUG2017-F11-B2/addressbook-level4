@@ -80,7 +80,7 @@ public class PersonCard extends UiPart<Region> {
             tags.getChildren().clear();
             initTags(person);
         });
-        person.webLinkProperty().addListener((observable, oldValue, newValue) ->{
+        person.webLinkProperty().addListener((observable, oldValue, newValue) -> {
             webLinks.getChildren().clear();
             initWebLinks(person);
         });
@@ -98,9 +98,13 @@ public class PersonCard extends UiPart<Region> {
         });
     }
 
+    /**
+     * Initialize person's webLink and add appropriate background color to it
+     * @param person name
+     */
     private void initWebLinks(ReadOnlyPerson person) {
         person.getWebLinks().forEach(webLink -> {
-            Label webLinkLabel= new Label(webLink.webLinkInput);
+            Label webLinkLabel = new Label(webLink.webLinkInput);
             webLinkLabel.setStyle("-fx-background-color: grey");
             webLinks.getChildren().add(webLinkLabel);
         });

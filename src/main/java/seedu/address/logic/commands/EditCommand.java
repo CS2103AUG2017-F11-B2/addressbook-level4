@@ -51,7 +51,7 @@ public class EditCommand extends UndoableCommand {
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com "
             + PREFIX_TAG + "owesMoney "
-            + PREFIX_WEB_LINK+ "https://www.facebook.com/jiasheng.an";
+            + PREFIX_WEB_LINK + "https://www.facebook.com/jiasheng.an";
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -110,7 +110,8 @@ public class EditCommand extends UndoableCommand {
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         Set<WebLink> updatedWebLinks = editPersonDescriptor.getWebLinks().orElse(personToEdit.getWebLinks());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedRemark, updatedTags, updatedWebLinks);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress,
+                updatedRemark, updatedTags, updatedWebLinks);
     }
 
     @Override
@@ -158,7 +159,8 @@ public class EditCommand extends UndoableCommand {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(this.name, this.phone, this.email, this.address, this.tags, this.webLinks);
+            return CollectionUtil.isAnyNonNull(this.name, this.phone, this.email, this.address,
+                    this.tags, this.webLinks);
         }
 
         public void setName(Name name) {
@@ -189,13 +191,9 @@ public class EditCommand extends UndoableCommand {
             this.address = address;
         }
 
-        public Optional<Address> getAddress() {
-            return Optional.ofNullable(address);
-        }
+        public Optional<Address> getAddress() { return Optional.ofNullable(address); }
 
-        public void setTags(Set<Tag> tags) {
-            this.tags = tags;
-        }
+        public void setTags(Set<Tag> tags) { this.tags = tags; }
 
         public void setWebLinks(Set<WebLink> webLinks){
             this.webLinks = webLinks;

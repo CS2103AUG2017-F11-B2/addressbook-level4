@@ -97,10 +97,10 @@ public class ParserUtil {
      */
     public static Set<WebLink> parseWebLink(Collection<String> webLinks) throws IllegalValueException {
         requireNonNull(webLinks);
-        final Set<WebLink> WebLinkSet = new HashSet<>();
+        final Set<WebLink> webLinkSet = new HashSet<>();
         for (String webLinkName : webLinks) {
-            WebLinkSet.add(new WebLink( webLinkName));
+            webLinkSet.add(new WebLink(webLinkName));
         }
-        return WebLinkSet;
+        return webLinkSet;
     }
 }

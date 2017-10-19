@@ -5,6 +5,9 @@ import javax.xml.bind.annotation.XmlValue;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.weblink.WebLink;
 
+/**
+ * JAXB-friendly adapted version of the WebLink.
+ */
 public class XmlAdaptedWebLink {
 
     @XmlValue

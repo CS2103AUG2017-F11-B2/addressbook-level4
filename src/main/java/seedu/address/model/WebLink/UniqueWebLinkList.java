@@ -1,7 +1,7 @@
 package seedu.address.model.weblink;
 
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.HashSet;
 import java.util.Iterator;

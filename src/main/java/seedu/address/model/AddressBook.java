@@ -67,7 +67,9 @@ public class AddressBook implements ReadOnlyAddressBook {
         this.tags.setTags(tags);
     }
 
-    public void setWebLinks(Set<WebLink> webLinks){ this.webLinks.setWebLinks(webLinks); }
+    public void setWebLinks(Set<WebLink> webLinks) {
+        this.webLinks.setWebLinks(webLinks);
+    }
 
     /**
      * Resets the existing data of this {@code AddressBook} with {@code newData}.
@@ -148,6 +150,16 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
+     * Ensures that every tag in these persons:
+     *  - exists in the master list {@link #tags}
+     *  - points to a Tag object in the master list
+     *  @see #syncMasterTagListWith(Person)
+     */
+    private void syncMasterTagListWith(UniquePersonList persons) {
+        persons.forEach(this::syncMasterTagListWith);
+    }
+
+    /**
      * Ensures that every web Link in this person:
      *  - exists in the master list {@link #webLinks}
      *  - points to a weblink object in the master list
@@ -167,15 +179,6 @@ public class AddressBook implements ReadOnlyAddressBook {
         person.setWebLinks(correctWebLinkReferences);
     }
 
-    /**
-     * Ensures that every tag in these persons:
-     *  - exists in the master list {@link #tags}
-     *  - points to a Tag object in the master list
-     *  @see #syncMasterTagListWith(Person)
-     */
-    private void syncMasterTagListWith(UniquePersonList persons) {
-        persons.forEach(this::syncMasterTagListWith);
-    }
 
     /**
      * Ensures that every web link in these persons:

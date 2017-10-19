@@ -19,8 +19,8 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.weblink.WebLink;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.weblink.WebLink;
 
 /**
  * Parses input arguments and creates a new EditCommand object
@@ -35,7 +35,8 @@ public class EditCommandParser implements Parser<EditCommand> {
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG, PREFIX_WEB_LINK);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
+                        PREFIX_ADDRESS, PREFIX_TAG, PREFIX_WEB_LINK);
 
         Index index;
 
@@ -90,7 +91,8 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (webLinks.isEmpty()) {
             return Optional.empty();
         }
-        Collection<String> webLinkSet = webLinks.size() == 1 && webLinks.contains("") ? Collections.emptySet() : webLinks;
+        Collection<String> webLinkSet = webLinks.size() == 1 &&
+                webLinks.contains("") ? Collections.emptySet() : webLinks;
         return Optional.of(ParserUtil.parseWebLink(webLinkSet));
     }
 
