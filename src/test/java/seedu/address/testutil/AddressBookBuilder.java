@@ -5,6 +5,7 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.WebLink.WebLink;
 
 /**
  * A utility class to help with building Addressbook objects.
@@ -43,6 +44,18 @@ public class AddressBookBuilder {
             addressBook.addTag(new Tag(tagName));
         } catch (IllegalValueException ive) {
             throw new IllegalArgumentException("tagName is expected to be valid.");
+        }
+        return this;
+    }
+
+    /**
+     * Parses {@code webLinkInput} into a {@code WebLink} and adds it to the {@code AddressBook} that we are building.
+     */
+    public AddressBookBuilder withWebLink(String webLinkInput) {
+        try {
+            addressBook.addWebLink(new WebLink(webLinkInput));
+        } catch (IllegalValueException ive) {
+            throw new IllegalArgumentException("webLinkInput is expected to be valid.");
         }
         return this;
     }
