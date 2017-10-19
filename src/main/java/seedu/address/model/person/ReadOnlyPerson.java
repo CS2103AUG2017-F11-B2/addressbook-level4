@@ -5,8 +5,8 @@ import java.util.Set;
 import javafx.beans.property.ObjectProperty;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
-import seedu.address.model.WebLink.WebLink;
-import seedu.address.model.WebLink.UniqueWebLinkList;
+import seedu.address.model.weblink.WebLink;
+import seedu.address.model.weblink.UniqueWebLinkList;
 
 /**
  * A read-only immutable interface for a Person in the addressbook.

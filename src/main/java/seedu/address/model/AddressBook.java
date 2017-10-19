@@ -17,8 +17,8 @@ import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
-import seedu.address.model.WebLink.UniqueWebLinkList;
-import seedu.address.model.WebLink.WebLink;
+import seedu.address.model.weblink.UniqueWebLinkList;
+import seedu.address.model.weblink.WebLink;
 
 /**
  * Wraps all data at the address-book level
@@ -150,7 +150,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     /**
      * Ensures that every web Link in this person:
      *  - exists in the master list {@link #webLinks}
-     *  - points to a WebLink object in the master list
+     *  - points to a weblink object in the master list
      */
     private void syncMasterWebLinkListWith(Person person) {
         final UniqueWebLinkList personWebLinks = new UniqueWebLinkList(person.getWebLinks());
@@ -180,7 +180,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     /**
      * Ensures that every web link in these persons:
      *  - exists in the master list {@link #webLinks}
-     *  - points to a WebLink object in the master list
+     *  - points to a weblink object in the master list
      *  @see #syncMasterWebLinkListWith(Person)
      */
     private void syncMasterWebLinkListWith(UniquePersonList persons) {

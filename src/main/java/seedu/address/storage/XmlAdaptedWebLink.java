@@ -3,7 +3,7 @@ package seedu.address.storage;
 import javax.xml.bind.annotation.XmlValue;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.WebLink.WebLink;
+import seedu.address.model.weblink.WebLink;
 
 public class XmlAdaptedWebLink {
 

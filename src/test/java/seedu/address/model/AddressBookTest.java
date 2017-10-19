@@ -22,7 +22,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.tag.Tag;
-import seedu.address.model.WebLink.WebLink;
+import seedu.address.model.weblink.WebLink;
 
 public class AddressBookTest {
 

@@ -1,15 +1,16 @@
-package seedu.address.model.WebLink;
+package seedu.address.model.weblink;
+
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static java.util.Objects.requireNonNull;
 
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import static java.util.Objects.requireNonNull;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.commons.exceptions.DuplicateDataException;
 import seedu.address.commons.util.CollectionUtil;
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 /**
  * A list of tags that enforces no nulls and uniqueness between its elements.
@@ -70,7 +71,7 @@ public class UniqueWebLinkList implements Iterable<WebLink> {
     }
 
     /**
-     * Returns true if the list contains an equivalent WebLink as the given argument.
+     * Returns true if the list contains an equivalent weblink as the given argument.
      */
     public boolean contains(WebLink toCheck) {
         requireNonNull(toCheck);

@@ -4,7 +4,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import seedu.address.model.WebLink.UniqueWebLinkList;
+import seedu.address.model.weblink.UniqueWebLinkList;
 
 public class UniqueWebLinkListTest {
     @Rule

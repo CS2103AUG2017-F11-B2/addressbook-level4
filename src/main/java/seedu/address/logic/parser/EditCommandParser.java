@@ -19,7 +19,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.WebLink.WebLink;
+import seedu.address.model.weblink.WebLink;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -80,7 +80,7 @@ public class EditCommandParser implements Parser<EditCommand> {
     }
 
     /**
-     * Parses {@code Collection<String> webLinks} into a {@code Set<WebLink>} if {@code webLinks} is non-empty.
+     * Parses {@code Collection<String> webLinks} into a {@code Set<weblink>} if {@code webLinks} is non-empty.
      * If {@code webLinks} contain only one element which is an empty string, it will be parsed into a
      * {@code Set<WebLinks>} containing zero tags.
      */

@@ -98,7 +98,7 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Parses the {@code webLinks} into a {@code Set<WebLink>} and set it to the {@code EditPersonDescriptor}
+     * Parses the {@code webLinks} into a {@code Set<weblink>} and set it to the {@code EditPersonDescriptor}
      * that we are building.
      */
     public EditPersonDescriptorBuilder withWebLinks(String... webLinks) {

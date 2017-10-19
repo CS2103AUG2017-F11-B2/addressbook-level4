@@ -5,7 +5,7 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.tag.Tag;
-import seedu.address.model.WebLink.WebLink;
+import seedu.address.model.weblink.WebLink;
 
 /**
  * A utility class to help with building Addressbook objects.
@@ -49,7 +49,7 @@ public class AddressBookBuilder {
     }
 
     /**
-     * Parses {@code webLinkInput} into a {@code WebLink} and adds it to the {@code AddressBook} that we are building.
+     * Parses {@code webLinkInput} into a {@code weblink} and adds it to the {@code AddressBook} that we are building.
      */
     public AddressBookBuilder withWebLink(String webLinkInput) {
         try {
