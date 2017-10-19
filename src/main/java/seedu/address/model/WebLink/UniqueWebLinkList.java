@@ -80,12 +80,12 @@ public class UniqueWebLinkList implements Iterable<WebLink> {
     /**
      * Adds a webLink to the list.
      *
-     * @throws DuplicateTagException if the webLink to add is a duplicate of an existing Tag in the list.
+     * @throws DuplicateWebLinkException if the webLink to add is a duplicate of an existing Tag in the list.
      */
-    public void add(WebLink toAdd) throws DuplicateTagException {
+    public void add(WebLink toAdd) throws DuplicateWebLinkException {
         requireNonNull(toAdd);
         if (contains(toAdd)) {
-            throw new DuplicateTagException();
+            throw new DuplicateWebLinkException();
         }
         internalList.add(toAdd);
 
@@ -133,9 +133,9 @@ public class UniqueWebLinkList implements Iterable<WebLink> {
     /**
      * Signals that an operation would have violated the 'no duplicates' property of the list.
      */
-    public static class DuplicateTagException extends DuplicateDataException {
-        protected DuplicateTagException() {
-            super("Operation would result in duplicate tags");
+    public static class DuplicateWebLinkException extends DuplicateDataException {
+        protected DuplicateWebLinkException() {
+            super("Operation would result in duplicate web Links");
         }
     }
 

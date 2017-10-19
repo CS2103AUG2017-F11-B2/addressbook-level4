@@ -4,8 +4,8 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.commons.exceptions.IllegalValueException;
 
 public class WebLink {
-    public static final String MESSAGE_TAG_CONSTRAINTS = "it should be a web link of the girl you want to stalk.";
-    public static final String WEB_LINK_VALIDATION_REGEX = "^(http:\\/\\/|https:\\/\\/)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*.[a-z]{3}.?([a-z]+)?$";
+    public static final String MESSAGE_WEB_LINK_CONSTRAINTS = "it should be a web link you want to stalk.";
+    public static final String WEB_LINK_VALIDATION_REGEX = "^\\S+";
 
     public final String webLinkInput;
 
@@ -18,7 +18,7 @@ public class WebLink {
         requireNonNull(name);
         String trimmedWebLink = name.trim();
         if (!isValidWebLink(trimmedWebLink)) {
-            throw new IllegalValueException(MESSAGE_TAG_CONSTRAINTS);
+            throw new IllegalValueException(MESSAGE_WEB_LINK_CONSTRAINTS);
         }
         this.webLinkInput = trimmedWebLink;
     }
