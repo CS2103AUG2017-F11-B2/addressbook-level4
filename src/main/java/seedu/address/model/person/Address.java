@@ -14,11 +14,9 @@ public class Address {
             "Person addresses can take any values, and it should not be blank";
 
     /*
-     * The first character of the address must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
+     * For V1.2(considering the user story), empty string or spaces are considered valid address
      */
-    public static final String ADDRESS_VALIDATION_REGEX = "[^\\s].*";
-
+    public static final String ADDRESS_VALIDATION_REGEX = ".*";
     public final String value;
 
     /**
@@ -28,14 +26,11 @@ public class Address {
      */
     public Address(String address) throws IllegalValueException {
         requireNonNull(address);
-        if (!isValidAddress(address)) {
-            throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
-        }
         this.value = address;
     }
 
     /**
-     * Returns true if a given string is a valid person email.
+     * Returns true if a given string is a valid person address.
      */
     public static boolean isValidAddress(String test) {
         return test.matches(ADDRESS_VALIDATION_REGEX);
