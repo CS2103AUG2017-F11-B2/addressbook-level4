@@ -195,7 +195,9 @@ public class EditCommand extends UndoableCommand {
             return Optional.ofNullable(address);
         }
 
-        public void setTags(Set<Tag> tags) { this.tags = tags; }
+        public void setTags(Set<Tag> tags) {
+            this.tags = tags;
+        }
 
         public void setWebLinks(Set<WebLink> webLinks) {
             this.webLinks = webLinks;
