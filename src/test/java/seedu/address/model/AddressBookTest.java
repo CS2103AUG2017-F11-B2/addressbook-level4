@@ -95,7 +95,8 @@ public class AddressBookTest {
         private final ObservableList<Tag> tags = FXCollections.observableArrayList();
         private final ObservableList<WebLink> webLinks = FXCollections.observableArrayList();
 
-        AddressBookStub(Collection<? extends ReadOnlyPerson> persons, Collection<? extends Tag> tags, Collection<? extends WebLink> webLinks) {
+        AddressBookStub(Collection<? extends ReadOnlyPerson> persons, Collection<? extends Tag> tags,
+                        Collection<? extends WebLink> webLinks) {
             this.persons.setAll(persons);
             this.tags.setAll(tags);
             this.webLinks.setAll(webLinks);
@@ -112,7 +113,9 @@ public class AddressBookTest {
         }
 
         @Override
-        public ObservableList<WebLink> getWebLinkList() { return webLinks; }
+        public ObservableList<WebLink> getWebLinkList() {
+            return webLinks;
+        }
     }
 
 }
