@@ -91,8 +91,8 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (webLinks.isEmpty()) {
             return Optional.empty();
         }
-        Collection<String> webLinkSet = webLinks.size() == 1 &&
-                webLinks.contains("") ? Collections.emptySet() : webLinks;
+        Collection<String> webLinkSet = webLinks.size() == 1
+                && webLinks.contains("") ? Collections.emptySet() : webLinks;
         return Optional.of(ParserUtil.parseWebLink(webLinkSet));
     }
 

@@ -191,11 +191,13 @@ public class EditCommand extends UndoableCommand {
             this.address = address;
         }
 
-        public Optional<Address> getAddress() { return Optional.ofNullable(address); }
+        public Optional<Address> getAddress() {
+            return Optional.ofNullable(address);
+        }
 
         public void setTags(Set<Tag> tags) { this.tags = tags; }
 
-        public void setWebLinks(Set<WebLink> webLinks){
+        public void setWebLinks(Set<WebLink> webLinks) {
             this.webLinks = webLinks;
         }
 
@@ -203,7 +205,9 @@ public class EditCommand extends UndoableCommand {
             return Optional.ofNullable(tags);
         }
 
-        public Optional<Set<WebLink>> getWebLinks() { return Optional.ofNullable(webLinks); }
+        public Optional<Set<WebLink>> getWebLinks() {
+            return Optional.ofNullable(webLinks);
+        }
 
         @Override
         public boolean equals(Object other) {
