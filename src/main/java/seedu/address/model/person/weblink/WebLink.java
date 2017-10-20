@@ -1,8 +1,6 @@
 package seedu.address.model.person.weblink;
 
 import static java.util.Objects.requireNonNull;
-
-import seedu.address.commons.exceptions.IllegalValueException;
 import static seedu.address.model.person.weblink.WebLinkUtil.FACEBOOK_MATCH_STRING;
 import static seedu.address.model.person.weblink.WebLinkUtil.FACEBOOK_TAG;
 import static seedu.address.model.person.weblink.WebLinkUtil.INSTAGRAM_MATCH_STRING;
@@ -12,6 +10,8 @@ import static seedu.address.model.person.weblink.WebLinkUtil.LINKEDIN_TAG;
 import static seedu.address.model.person.weblink.WebLinkUtil.TWITTER_MATCH_STRING;
 import static seedu.address.model.person.weblink.WebLinkUtil.TWITTER_TAG;
 
+import seedu.address.commons.exceptions.IllegalValueException;
+
 /**
  * Represents a WebLink in the address book.
  * Guarantees: immutable; name is valid as declared in {@link #isValidWebLink(String)}
@@ -20,8 +20,10 @@ import static seedu.address.model.person.weblink.WebLinkUtil.TWITTER_TAG;
  */
 public class WebLink {
 
-    public static final String MESSAGE_WEB_LINK_CONSTRAINTS = "Hi, only valid facebook, instagram, linkedin or twitter links will be accepted:)";
-    public static final String WEB_LINK_VALIDATION_REGEX = "^^.*(|instagram.com|linkedin.com|twitter.com|facebook.com).*$";
+    public static final String MESSAGE_WEB_LINK_CONSTRAINTS = "Hi, only valid facebook," +
+            " instagram, linkedin or twitter links will be accepted:)";
+    public static final String WEB_LINK_VALIDATION_REGEX = "^^.*(|instagram.com|linkedin.com|twitter.com" +
+            "|facebook.com).*$";
 
     public final String webLinkInput;
     public final String webLinkTag;
@@ -40,15 +42,15 @@ public class WebLink {
         }
         this.webLinkInput = trimmedWebLink;
 
-        if(webLinkInput.contains(FACEBOOK_MATCH_STRING)) {
+        if (webLinkInput.contains(FACEBOOK_MATCH_STRING)) {
             this.webLinkTag = FACEBOOK_TAG;
-        }else if(webLinkInput.contains(TWITTER_MATCH_STRING)) {
+        } else if (webLinkInput.contains(TWITTER_MATCH_STRING)) {
             this.webLinkTag = TWITTER_TAG;
-        }else if(webLinkInput.contains(LINKEDIN_MATCH_STRING)) {
+        } else if (webLinkInput.contains(LINKEDIN_MATCH_STRING)) {
             this.webLinkTag = LINKEDIN_TAG;
-        }else if(webLinkInput.contains(INSTAGRAM_MATCH_STRING)) {
+        } else if (webLinkInput.contains(INSTAGRAM_MATCH_STRING)) {
             this.webLinkTag = INSTAGRAM_TAG;
-        }else{
+        } else {
             throw new IllegalValueException(MESSAGE_WEB_LINK_CONSTRAINTS);
         }
     }

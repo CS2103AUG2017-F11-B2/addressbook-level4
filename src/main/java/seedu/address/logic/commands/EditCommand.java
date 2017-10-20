@@ -26,8 +26,8 @@ import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.Remark;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
-import seedu.address.model.tag.Tag;
 import seedu.address.model.person.weblink.WebLink;
+import seedu.address.model.tag.Tag;
 
 /**
  * Edits the details of an existing person in the address book.

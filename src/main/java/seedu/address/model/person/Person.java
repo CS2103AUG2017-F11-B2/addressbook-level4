@@ -169,13 +169,13 @@ public class Person implements ReadOnlyPerson {
      * returns a ArrayList of string websites for UI usage.
      * @code WebLinkUtil for the list of webLinkTags can be used as category.
      */
-    public ArrayList<String> listOfWebLinkByCategory (String category){
+    public ArrayList<String> listOfWebLinkByCategory (String category) {
         ArrayList<String> outputWebLinkList = new ArrayList<String>();
-        for(Iterator<WebLink> iterateWebLinkSet = getWebLinks().iterator(); iterateWebLinkSet.hasNext();){
+        for(Iterator<WebLink> iterateWebLinkSet = getWebLinks().iterator(); iterateWebLinkSet.hasNext();) {
             WebLink checkWebLink = iterateWebLinkSet.next();
             String webLinkAddedToList = checkWebLink.toStringWebLink();
             String checkWebLinkTag = checkWebLink.toStringWebLinkTag();
-            if(checkWebLinkTag.equals(category)){
+            if(checkWebLinkTag.equals(category)) {
                 outputWebLinkList.add(webLinkAddedToList);
             }
         }
