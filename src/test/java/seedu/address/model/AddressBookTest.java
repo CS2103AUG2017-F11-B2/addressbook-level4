@@ -111,11 +111,6 @@ public class AddressBookTest {
         public ObservableList<Tag> getTagList() {
             return tags;
         }
-
-        @Override
-        public ObservableList<WebLink> getWebLinkList() {
-            return webLinks;
-        }
     }
 
 }

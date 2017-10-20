@@ -173,8 +173,10 @@ public class Person implements ReadOnlyPerson {
         ArrayList<String> outputWebLinkList = new ArrayList<String>();
         for(Iterator<WebLink> iterateWebLinkSet = getWebLinks().iterator(); iterateWebLinkSet.hasNext();){
             WebLink checkWebLink = iterateWebLinkSet.next();
-            if(checkWebLink.toStringWebLinkTag().equals(category)){
-                outputWebLinkList.add(checkWebLink.toStringWebLink());
+            String webLinkAddedToList = checkWebLink.toStringWebLink();
+            String checkWebLinkTag = checkWebLink.toStringWebLinkTag();
+            if(checkWebLinkTag.equals(category)){
+                outputWebLinkList.add(webLinkAddedToList);
             }
         }
         return outputWebLinkList;

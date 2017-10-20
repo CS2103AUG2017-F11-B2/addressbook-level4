@@ -48,18 +48,6 @@ public class AddressBookBuilder {
         return this;
     }
 
-    /**
-     * Parses {@code webLinkInput} into a {@code weblink} and adds it to the {@code AddressBook} that we are building.
-     */
-    public AddressBookBuilder withWebLink(String webLinkInput) {
-        try {
-            addressBook.addWebLink(new WebLink(webLinkInput));
-        } catch (IllegalValueException ive) {
-            throw new IllegalArgumentException("webLinkInput is expected to be valid.");
-        }
-        return this;
-    }
-
     public AddressBook build() {
         return addressBook;
     }
