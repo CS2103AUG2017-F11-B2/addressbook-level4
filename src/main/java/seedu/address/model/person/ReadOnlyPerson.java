@@ -5,7 +5,8 @@ import java.util.Set;
 import javafx.beans.property.ObjectProperty;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
-
+import seedu.address.model.weblink.UniqueWebLinkList;
+import seedu.address.model.weblink.WebLink;
 /**
  * A read-only immutable interface for a Person in the addressbook.
  * Implementations should guarantee: details are present and not null, field values are validated.
@@ -24,6 +25,9 @@ public interface ReadOnlyPerson {
     Remark getRemark();
     ObjectProperty<UniqueTagList> tagProperty();
     Set<Tag> getTags();
+    ObjectProperty<UniqueWebLinkList> webLinkProperty();
+    Set<WebLink> getWebLinks();
+
 
     /**
      * Returns true if both have the same state. (interfaces cannot override .equals)
@@ -54,6 +58,8 @@ public interface ReadOnlyPerson {
                 .append(getRemark())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
+        builder.append(" WebLinks: ");
+        getWebLinks().forEach(builder::append);
         return builder.toString();
     }
 
