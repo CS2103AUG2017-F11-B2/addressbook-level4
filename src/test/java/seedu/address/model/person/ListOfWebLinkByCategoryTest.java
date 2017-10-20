@@ -22,6 +22,9 @@ public class ListOfWebLinkByCategoryTest {
         assertTrue(isTwoArrayListsWithSameValues(expectedOutput, AMY.listOfWebLinkByCategory(FACEBOOK_TAG)));
     }
 
+    /**
+     * compares 2 ArrayLists, irregardless of order of objects in the 2 lists, return boolean whether 2 lists are equals.
+     */
     public boolean isTwoArrayListsWithSameValues(ArrayList<String> list1, ArrayList<String> list2) {
         //null checking
         if (list1 == null && list2 == null) {
