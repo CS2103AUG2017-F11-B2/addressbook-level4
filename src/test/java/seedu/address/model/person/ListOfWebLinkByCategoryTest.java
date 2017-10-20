@@ -3,16 +3,12 @@ package seedu.address.model.person;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_WEB_LINK_DEFAULT;
-import static seedu.address.model.weblink.WebLinkUtil.FACEBOOK_TAG;
+import static seedu.address.model.person.weblink.WebLinkUtil.FACEBOOK_TAG;
 import static seedu.address.testutil.TypicalPersons.AMY;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Set;
 
 import org.junit.Test;
-
-import seedu.address.model.weblink.WebLink;
 
 public class ListOfWebLinkByCategoryTest {
 

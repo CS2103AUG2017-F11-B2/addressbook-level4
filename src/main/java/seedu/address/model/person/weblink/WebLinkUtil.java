@@ -1,4 +1,4 @@
-package seedu.address.model.weblink;
+package seedu.address.model.person.weblink;
 
 /**
  * Contains Command Line Interface (CLI) syntax definitions common to multiple commands

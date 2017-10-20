@@ -16,7 +16,7 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
-import seedu.address.model.weblink.WebLink;
+import seedu.address.model.person.weblink.WebLink;
 
 /**
  * JAXB-friendly version of the Person.

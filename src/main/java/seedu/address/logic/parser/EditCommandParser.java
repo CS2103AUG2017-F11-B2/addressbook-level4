@@ -20,7 +20,7 @@ import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.tag.Tag;
-import seedu.address.model.weblink.WebLink;
+import seedu.address.model.person.weblink.WebLink;
 
 /**
  * Parses input arguments and creates a new EditCommand object

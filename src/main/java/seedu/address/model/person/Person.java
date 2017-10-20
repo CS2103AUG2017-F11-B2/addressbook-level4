@@ -13,8 +13,8 @@ import javafx.beans.property.SimpleObjectProperty;
 
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
-import seedu.address.model.weblink.UniqueWebLinkList;
-import seedu.address.model.weblink.WebLink;
+import seedu.address.model.person.weblink.UniqueWebLinkList;
+import seedu.address.model.person.weblink.WebLink;
 
 /**
  * Represents a Person in the address book.

@@ -1,4 +1,4 @@
-package seedu.address.model.weblink;
+package seedu.address.model.person.weblink;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
