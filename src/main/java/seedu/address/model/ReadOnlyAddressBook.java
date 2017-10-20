@@ -23,6 +23,4 @@ public interface ReadOnlyAddressBook {
      */
     ObservableList<Tag> getTagList();
 
-    ObservableList<WebLink> getWebLinkList();
-
 }

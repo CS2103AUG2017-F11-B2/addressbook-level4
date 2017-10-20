@@ -45,7 +45,6 @@ public class XmlSerializableAddressBook implements ReadOnlyAddressBook {
         this();
         persons.addAll(src.getPersonList().stream().map(XmlAdaptedPerson::new).collect(Collectors.toList()));
         tags.addAll(src.getTagList().stream().map(XmlAdaptedTag::new).collect(Collectors.toList()));
-        webLinks.addAll(src.getWebLinkList().stream().map(XmlAdaptedWebLink::new).collect(Collectors.toList()));
     }
 
     @Override
@@ -74,19 +73,6 @@ public class XmlSerializableAddressBook implements ReadOnlyAddressBook {
             }
         }).collect(Collectors.toCollection(FXCollections::observableArrayList));
         return FXCollections.unmodifiableObservableList(tags);
-    }
-
-    @Override
-    public ObservableList<WebLink> getWebLinkList() {
-        final ObservableList<WebLink> webLinks = this.webLinks.stream().map(w -> {
-            try {
-                return w.toModelType();
-            } catch (IllegalValueException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }).collect(Collectors.toCollection(FXCollections::observableArrayList));
-        return FXCollections.unmodifiableObservableList(webLinks);
     }
 
 }
