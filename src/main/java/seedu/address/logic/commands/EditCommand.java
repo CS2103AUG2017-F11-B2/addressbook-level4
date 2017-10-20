@@ -95,15 +95,11 @@ public class EditCommand extends UndoableCommand {
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
     }
 
-    public EditPersonDescriptor getEditPersonDescriptor() {
-        return editPersonDescriptor;
-    }
-
     /**
      * Creates and returns a {@code Person} with the details of {@code personToEdit}
      * edited with {@code editPersonDescriptor}.
      */
-    public static Person createEditedPerson(ReadOnlyPerson personToEdit,
+    private static Person createEditedPerson(ReadOnlyPerson personToEdit,
                                              EditPersonDescriptor editPersonDescriptor) {
         assert personToEdit != null;
 

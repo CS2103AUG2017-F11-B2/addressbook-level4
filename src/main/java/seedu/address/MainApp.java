@@ -25,16 +25,13 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.person.UserPerson;
 import seedu.address.model.util.SampleDataUtil;
 import seedu.address.storage.AddressBookStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.Storage;
 import seedu.address.storage.StorageManager;
 import seedu.address.storage.UserPrefsStorage;
-import seedu.address.storage.UserProfileStorage;
 import seedu.address.storage.XmlAddressBookStorage;
-import seedu.address.storage.XmlUserProfileStorage;
 import seedu.address.ui.Ui;
 import seedu.address.ui.UiManager;
 
@@ -65,8 +62,7 @@ public class MainApp extends Application {
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         userPrefs = initPrefs(userPrefsStorage);
         AddressBookStorage addressBookStorage = new XmlAddressBookStorage(userPrefs.getAddressBookFilePath());
-        UserProfileStorage userProfileStorage = new XmlUserProfileStorage(userPrefs.getUserProfileFilePath());
-        storage = new StorageManager(addressBookStorage, userPrefsStorage, userProfileStorage);
+        storage = new StorageManager(addressBookStorage, userPrefsStorage);
 
         initLogging(config);
 
@@ -91,16 +87,12 @@ public class MainApp extends Application {
      */
     private Model initModelManager(Storage storage, UserPrefs userPrefs) {
         Optional<ReadOnlyAddressBook> addressBookOptional;
-        Optional<UserPerson> userPersonOptional;
         ReadOnlyAddressBook initialData;
-        UserPerson initialUser;
         try {
             addressBookOptional = storage.readAddressBook();
-
             if (!addressBookOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample AddressBook");
             }
-
             initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
         } catch (DataConversionException e) {
             logger.warning("Data file not in the correct format. Will be starting with an empty AddressBook");
@@ -110,21 +102,7 @@ public class MainApp extends Application {
             initialData = new AddressBook();
         }
 
-        try {
-            userPersonOptional = storage.readUserProfile();
-            if (!userPersonOptional.isPresent()) {
-                logger.info(" No userProfile found, will be starting with a new user");
-            }
-            initialUser = userPersonOptional.orElse(new UserPerson());
-        } catch (DataConversionException e) {
-            logger.warning("Data file not in the correct format. Will be starting with a new User");
-            initialUser = new UserPerson();
-        } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with a new User");
-            initialUser = new UserPerson();
-        }
-
-        return new ModelManager(initialData, userPrefs, initialUser);
+        return new ModelManager(initialData, userPrefs);
     }
 
     private void initLogging(Config config) {
@@ -199,38 +177,6 @@ public class MainApp extends Application {
         return initializedPrefs;
     }
 
-    /**
-     * Returns a {@code UserPerson} using the file at {@code storage}'s user prefs file path,
-     * or a new {@code UserPerson} with default configuration if errors occur when
-     * reading from the file.
-     */
-    protected UserPerson initUserPerson(UserProfileStorage storage) {
-        String userProfileFilePath = storage.getUserProfileFilePath();
-        logger.info("Using UserProfile file : " + userProfileFilePath);
-
-        UserPerson initializedPerson;
-        try {
-            Optional<UserPerson> userPersonOptional = storage.readUserProfile();
-            initializedPerson = userPersonOptional.orElse(new UserPerson());
-        } catch (DataConversionException e) {
-            logger.warning("UserProfile file at " + userProfileFilePath + " is not in the correct format. "
-                    + "Using default user profile");
-            initializedPerson = new UserPerson();
-        } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with a new user Profile");
-            initializedPerson = new UserPerson();
-        }
-
-        //Update prefs file in case it was missing to begin with or there are new/unused fields
-        try {
-            storage.saveUserPerson(initializedPerson);
-        } catch (IOException e) {
-            logger.warning("Failed to save UserProfile file : " + StringUtil.getDetails(e));
-        }
-
-        return initializedPerson;
-    }
-
     private void initEventsCenter() {
         EventsCenter.getInstance().registerHandler(this);
     }
@@ -247,7 +193,6 @@ public class MainApp extends Application {
         ui.stop();
         try {
             storage.saveUserPrefs(userPrefs);
-            storage.saveUserPerson(model.getUserPerson());
         } catch (IOException e) {
             logger.severe("Failed to save preferences " + StringUtil.getDetails(e));
         }

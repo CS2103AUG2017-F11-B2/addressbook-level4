@@ -23,7 +23,6 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.person.UserPerson;
 import seedu.address.ui.testutil.EventsCollectorRule;
 
 /**
@@ -37,7 +36,7 @@ public class SelectCommandTest {
 
     @Before
     public void setUp() {
-        model = new ModelManager(getSortedTypicalAddressBook(), new UserPrefs(), new UserPerson());
+        model = new ModelManager(getSortedTypicalAddressBook(), new UserPrefs());
     }
 
     @Test

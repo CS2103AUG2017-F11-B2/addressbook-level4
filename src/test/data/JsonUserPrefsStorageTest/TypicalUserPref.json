@@ -8,6 +8,5 @@
     }
   },
   "addressBookFilePath" : "addressbook.xml",
-  "userProfileFilePath" : "userprofile.xml",
   "addressBookName" : "TypicalAddressBookName"
 }

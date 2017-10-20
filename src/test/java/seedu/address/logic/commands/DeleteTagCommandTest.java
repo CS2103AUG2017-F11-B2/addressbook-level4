@@ -10,14 +10,13 @@ import seedu.address.logic.UndoRedoStack;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.person.UserPerson;
 import seedu.address.model.tag.Tag;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for {@code DeleteTagCommand}.
  */
 public class DeleteTagCommandTest {
-    private Model model = new ModelManager(getSortedTypicalAddressBook(), new UserPrefs(), new UserPerson());
+    private Model model = new ModelManager(getSortedTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void execute_validTagUnfilteredList_success() throws Exception {
@@ -26,7 +25,7 @@ public class DeleteTagCommandTest {
 
         String expectedMessage = String.format(DeleteTagCommand.MESSAGE_DELETE_ALL_TAG_SUCCESS, tagForDelete);
 
-        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new UserPerson());
+        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.deleteTag(tagForDelete);
 
         assertCommandSuccess(deleteTagCommand, model, expectedMessage, expectedModel);
