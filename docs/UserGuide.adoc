@@ -54,7 +54,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 Format: `help`
 
-=== Adding a person: `add`
+=== Adding a person: `add` or `a`
 
 Adds a person to the address book +
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
@@ -65,9 +65,9 @@ A person can have any number of tags (including 0)
 Examples:
 
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal w/google.com`
 
-=== Listing all persons : `list`
+=== Listing all persons : `list` or `l`
 
 Shows a list of all persons in the address book. +
 Format: `list`
@@ -87,7 +87,7 @@ Examples:
 === Editing a person : `edit`
 
 Edits an existing person in the address book. +
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG] [w/WEBLINK]...`
 
 ****
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the last person listing. The index *must be a positive integer* 1, 2, 3, ...
@@ -279,6 +279,23 @@ Adds a 'remark' to the 1st person in the list. +
 A new remark added to the same person will overwrite the previous remark.
 // end::remark[]
 
+// tag::updateUserPerson[]
+=== Updating User Profile: `update`
+
+Edits the User Profile contact card similar to edit command, but does not take in any index parameter. +
+Only the name, email, address and phone number of the User Person can be updated. +
+The user profile is stored in data/userProfile.xml by default. +
+
+Format: 'update [n/Name] [p/Phone] [e/Email] [a/Address]'
+
+Examples:
+
+* `update n/Drake p/93236353` +
+Updates the name and phone number of the User Person, saved to userProfile.xml. +
+
+Any new information added will overwrite previous data.
+// end::updateUserPerson[]
+
 === Clearing all entries : `clear`
 
 Clears all entries from the address book. +
@@ -289,9 +306,22 @@ Format: `clear`
 Exits the program. +
 Format: `exit`
 
+// tag::viewAddress[]
+=== Viewing address in Google Maps : `coming in v1.3`
+
+Changes the internal browser to the maps view of the address of a selected contact.
+
+[NOTE]
+====
+Contact must be selected before selecting the buttons.
+
+A CLI command will be implemented `coming in v1.3`
+====
+// end::viewAddress[]
+
 === Saving the data
 
-Address book data are saved in the hard disk automatically after any command that changes the data. +
+Address book data and user profile data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
 == FAQ
@@ -301,11 +331,13 @@ There is no need to save manually.
 
 == Command Summary
 
-* *Add* `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` +
-e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
+* *Add* `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG] [w/WEBLINK]...` +
+e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague w/google.com`
 * *Clear* : `clear`
 * *Delete* : `delete INDEX` +
 e.g. `delete 3`
+* *tagDelete* : `tagDelete TAG` +
+e.g. `tagDelete friend`
 * *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
 e.g. `edit 2 n/James Lee e/jameslee@example.com`
 * *Find* : `find KEYWORD [MORE_KEYWORDS]` +

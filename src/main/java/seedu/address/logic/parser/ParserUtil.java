@@ -12,6 +12,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.weblink.WebLink;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -90,5 +91,17 @@ public class ParserUtil {
             tagSet.add(new Tag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses {@code Collection<String> webLinks} into a {@code Set<weblink>}.
+     */
+    public static Set<WebLink> parseWebLink(Collection<String> webLinks) throws IllegalValueException {
+        requireNonNull(webLinks);
+        final Set<WebLink> webLinkSet = new HashSet<>();
+        for (String webLinkName : webLinks) {
+            webLinkSet.add(new WebLink(webLinkName));
+        }
+        return webLinkSet;
     }
 }
