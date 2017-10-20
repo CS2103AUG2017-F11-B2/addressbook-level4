@@ -23,7 +23,8 @@ public class ListOfWebLinkByCategoryTest {
     }
 
     /**
-     * compares 2 ArrayLists, irregardless of order of objects in the 2 lists, return boolean whether 2 lists are equals.
+     * compares 2 ArrayLists, irregardless of order of objects in the 2 lists,
+     * return boolean whether 2 lists are equals.
      */
     public boolean isTwoArrayListsWithSameValues(ArrayList<String> list1, ArrayList<String> list2) {
         //null checking
