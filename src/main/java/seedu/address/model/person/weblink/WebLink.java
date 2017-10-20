@@ -20,10 +20,10 @@ import seedu.address.commons.exceptions.IllegalValueException;
  */
 public class WebLink {
 
-    public static final String MESSAGE_WEB_LINK_CONSTRAINTS = "Hi, only valid facebook," +
-            " instagram, linkedin or twitter links will be accepted:)";
-    public static final String WEB_LINK_VALIDATION_REGEX = "^^.*(|instagram.com|linkedin.com|twitter.com" +
-            "|facebook.com).*$";
+    public static final String MESSAGE_WEB_LINK_CONSTRAINTS = "Hi, only valid facebook,"
+            + " instagram, linkedin or twitter links will be accepted:)";
+    public static final String WEB_LINK_VALIDATION_REGEX = "^^.*(|instagram.com|linkedin.com|twitter.com"
+            + "|facebook.com).*$";
 
     public final String webLinkInput;
     public final String webLinkTag;

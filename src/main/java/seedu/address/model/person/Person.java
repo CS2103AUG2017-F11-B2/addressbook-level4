@@ -171,11 +171,11 @@ public class Person implements ReadOnlyPerson {
      */
     public ArrayList<String> listOfWebLinkByCategory (String category) {
         ArrayList<String> outputWebLinkList = new ArrayList<String>();
-        for(Iterator<WebLink> iterateWebLinkSet = getWebLinks().iterator(); iterateWebLinkSet.hasNext();) {
+        for (Iterator<WebLink> iterateWebLinkSet = getWebLinks().iterator(); iterateWebLinkSet.hasNext();) {
             WebLink checkWebLink = iterateWebLinkSet.next();
             String webLinkAddedToList = checkWebLink.toStringWebLink();
             String checkWebLinkTag = checkWebLink.toStringWebLinkTag();
-            if(checkWebLinkTag.equals(category)) {
+            if (checkWebLinkTag.equals(category)) {
                 outputWebLinkList.add(webLinkAddedToList);
             }
         }
