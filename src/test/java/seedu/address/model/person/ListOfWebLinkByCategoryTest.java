@@ -9,14 +9,17 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+/**
+ * junit test for listOfWebLinkByCategoryTest. Will increase coverage in the future.
+ */
 public class ListOfWebLinkByCategoryTest {
 
     @Test
     public void isValidOutputOfWebLinks() {
         ReadOnlyPerson toAdd = AMY;
-        ArrayList<String> ExpectedOutput= new ArrayList<String>();
-        ExpectedOutput.add(VALID_WEB_LINK_DEFAULT);
-        assertTrue(isTwoArrayListsWithSameValues(ExpectedOutput, AMY.listOfWebLinkByCategory(FACEBOOK_TAG)));
+        ArrayList<String> expectedOutput = new ArrayList<String>();
+        expectedOutput.add(VALID_WEB_LINK_DEFAULT);
+        assertTrue(isTwoArrayListsWithSameValues(expectedOutput, AMY.listOfWebLinkByCategory(FACEBOOK_TAG)));
     }
 
     public boolean isTwoArrayListsWithSameValues(ArrayList<String> list1, ArrayList<String> list2) {
