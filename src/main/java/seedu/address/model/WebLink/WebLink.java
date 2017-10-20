@@ -1,25 +1,38 @@
 package seedu.address.model.weblink;
 
+import java.util.IllegalFormatException;
+
 import static java.util.Objects.requireNonNull;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+import static seedu.address.model.weblink.WebLinkUtil.FACEBOOK_MATCH_STRING;
+import static seedu.address.model.weblink.WebLinkUtil.FACEBOOK_TAG;
+import static seedu.address.model.weblink.WebLinkUtil.INSTAGRAM_MATCH_STRING;
+import static seedu.address.model.weblink.WebLinkUtil.INSTAGRAM_TAG;
+import static seedu.address.model.weblink.WebLinkUtil.LINKEDIN_MATCH_STRING;
+import static seedu.address.model.weblink.WebLinkUtil.LINKEDIN_TAG;
+import static seedu.address.model.weblink.WebLinkUtil.TWITTER_MATCH_STRING;
+import static seedu.address.model.weblink.WebLinkUtil.TWITTER_TAG;
 
 /**
  * Represents a WebLink in the address book.
  * Guarantees: immutable; name is valid as declared in {@link #isValidWebLink(String)}
- * TODO: only accept twitter facebook linkedin and instgram links
+ * only accept twitter, facebook, linkedin and instagram links
+ * WebLinkTag defines the category of this webLink.
  */
 public class WebLink {
 
-    public static final String MESSAGE_WEB_LINK_CONSTRAINTS = "Hi, only facebook, instagram, linkedin and twitter links will be accepted:)";
-    public static final String WEB_LINK_VALIDATION_REGEX = "^^.*(facebook.com|instagram.com|linkedin.com|twitter.com).*$";
+    public static final String MESSAGE_WEB_LINK_CONSTRAINTS = "Hi, only valid facebook, instagram, linkedin or twitter links will be accepted:)";
+    public static final String WEB_LINK_VALIDATION_REGEX = "^^.*(|instagram.com|linkedin.com|twitter.com|facebook.com).*$";
 
     public final String webLinkInput;
+    public final String webLinkTag;
 
     /**
      * Validates given web link.
      *
-     * @throws IllegalValueException if the given tag name string is invalid.
+     * @throws IllegalValueException if the given webLink name string is invalid.
+     * TODO: better implementation in the future instead of hard code.
      */
     public WebLink(String name) throws IllegalValueException {
         requireNonNull(name);
@@ -28,6 +41,18 @@ public class WebLink {
             throw new IllegalValueException(MESSAGE_WEB_LINK_CONSTRAINTS);
         }
         this.webLinkInput = trimmedWebLink;
+
+        if(webLinkInput.contains(FACEBOOK_MATCH_STRING)) {
+            this.webLinkTag = FACEBOOK_TAG;
+        }else if(webLinkInput.contains(TWITTER_MATCH_STRING)) {
+            this.webLinkTag = TWITTER_TAG;
+        }else if(webLinkInput.contains(LINKEDIN_MATCH_STRING)) {
+            this.webLinkTag = LINKEDIN_TAG;
+        }else if(webLinkInput.contains(INSTAGRAM_MATCH_STRING)) {
+            this.webLinkTag = INSTAGRAM_TAG;
+        }else{
+            throw new IllegalValueException(MESSAGE_WEB_LINK_CONSTRAINTS);
+        }
     }
 
     /**
@@ -59,8 +84,14 @@ public class WebLink {
     /**
      * Format state as text for viewing.
      */
-    public String toStringFilter() {
+    public String toStringWebLink() {
         return webLinkInput;
     }
 
+    /**
+     * Format state as text for viewing.
+     */
+    public String toStringWebLinkTag() {
+        return webLinkTag;
+    }
 }
