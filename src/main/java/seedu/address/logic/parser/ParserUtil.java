@@ -2,10 +2,7 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
@@ -15,6 +12,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.weblink.WebLink;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -74,9 +72,13 @@ public class ParserUtil {
      * Parses a {@code Optional<String> email} into an {@code Optional<Email>} if {@code email} is present.
      * See header comment of this class regarding the use of {@code Optional} parameters.
      */
-    public static Optional<Email> parseEmail(Optional<String> email) throws IllegalValueException {
+    public static ArrayList<Email> parseEmail(Collection<String> email) throws IllegalValueException {
         requireNonNull(email);
-        return email.isPresent() ? Optional.of(new Email(email.get())) : Optional.empty();
+        final ArrayList<Email> temp = new ArrayList<>();
+        for (String e : email) {
+            temp.add(new Email(e));
+        }
+        return temp;
     }
 
     /**
@@ -89,5 +91,17 @@ public class ParserUtil {
             tagSet.add(new Tag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses {@code Collection<String> webLinks} into a {@code Set<weblink>}.
+     */
+    public static Set<WebLink> parseWebLink(Collection<String> webLinks) throws IllegalValueException {
+        requireNonNull(webLinks);
+        final Set<WebLink> webLinkSet = new HashSet<>();
+        for (String webLinkName : webLinks) {
+            webLinkSet.add(new WebLink(webLinkName));
+        }
+        return webLinkSet;
     }
 }

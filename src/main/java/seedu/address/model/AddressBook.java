@@ -17,6 +17,8 @@ import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
+import seedu.address.model.weblink.UniqueWebLinkList;
+import seedu.address.model.weblink.WebLink;
 
 /**
  * Wraps all data at the address-book level
@@ -26,6 +28,7 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     private final UniquePersonList persons;
     private final UniqueTagList tags;
+    private final UniqueWebLinkList webLinks;
 
     /*
      * The 'unusual' code block below is an non-static initialization block, sometimes used to avoid duplication
@@ -37,6 +40,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     {
         persons = new UniquePersonList();
         tags = new UniqueTagList();
+        webLinks = new UniqueWebLinkList();
     }
 
     public AddressBook() {}
@@ -63,6 +67,10 @@ public class AddressBook implements ReadOnlyAddressBook {
         this.tags.setTags(tags);
     }
 
+    public void setWebLinks(Set<WebLink> webLinks) {
+        this.webLinks.setWebLinks(webLinks);
+    }
+
     /**
      * Resets the existing data of this {@code AddressBook} with {@code newData}.
      */
@@ -76,6 +84,8 @@ public class AddressBook implements ReadOnlyAddressBook {
 
         setTags(new HashSet<>(newData.getTagList()));
         syncMasterTagListWith(persons);
+        setWebLinks(new HashSet<>(newData.getWebLinkList()));
+        syncMasterWebLinkListWith(persons);
     }
 
     //// person-level operations
@@ -112,6 +122,7 @@ public class AddressBook implements ReadOnlyAddressBook {
 
         Person editedPerson = new Person(editedReadOnlyPerson);
         syncMasterTagListWith(editedPerson);
+        syncMasterWebLinkListWith(editedPerson);
         // TODO: the tags master list will be updated even though the below line fails.
         // This can cause the tags master list to have additional tags that are not tagged to any person
         // in the person list.
@@ -149,6 +160,37 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
+     * Ensures that every web Link in this person:
+     *  - exists in the master list {@link #webLinks}
+     *  - points to a weblink object in the master list
+     */
+    private void syncMasterWebLinkListWith(Person person) {
+        final UniqueWebLinkList personWebLinks = new UniqueWebLinkList(person.getWebLinks());
+        webLinks.mergeFrom(personWebLinks);
+
+        // Create map with values = webLink object references in the master list
+        // used for checking person webLink references
+        final Map<WebLink, WebLink> masterWebLinkObjects = new HashMap<>();
+        webLinks.forEach(webLink -> masterWebLinkObjects.put(webLink, webLink));
+
+        // Rebuild the list of person tags to point to the relevant webLink in the master webLink list.
+        final Set<WebLink> correctWebLinkReferences = new HashSet<>();
+        personWebLinks.forEach(webLink -> correctWebLinkReferences.add(masterWebLinkObjects.get(webLink)));
+        person.setWebLinks(correctWebLinkReferences);
+    }
+
+
+    /**
+     * Ensures that every web link in these persons:
+     *  - exists in the master list {@link #webLinks}
+     *  - points to a weblink object in the master list
+     *  @see #syncMasterWebLinkListWith(Person)
+     */
+    private void syncMasterWebLinkListWith(UniquePersonList persons) {
+        persons.forEach(this::syncMasterWebLinkListWith);
+    }
+
+    /**
      * Removes {@code key} from this {@code AddressBook}.
      * @throws PersonNotFoundException if the {@code key} is not in this {@code AddressBook}.
      */
@@ -166,11 +208,17 @@ public class AddressBook implements ReadOnlyAddressBook {
         tags.add(t);
     }
 
+    //// tag-level operations
+
+    public void addWebLink(WebLink w) throws UniqueWebLinkList.DuplicateWebLinkException {
+        webLinks.add(w);
+    }
     //// util methods
 
     @Override
     public String toString() {
-        return persons.asObservableList().size() + " persons, " + tags.asObservableList().size() +  " tags";
+        return persons.asObservableList().size() + " persons, " + tags.asObservableList().size() +  " tags, "
+                + webLinks.asObservableList().size() + " web links";
         // TODO: refine later
     }
 
@@ -182,6 +230,11 @@ public class AddressBook implements ReadOnlyAddressBook {
     @Override
     public ObservableList<Tag> getTagList() {
         return tags.asObservableList();
+    }
+
+    @Override
+    public ObservableList<WebLink> getWebLinkList() {
+        return webLinks.asObservableList();
     }
 
     @Override
