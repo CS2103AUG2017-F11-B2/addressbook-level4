@@ -7,11 +7,12 @@ import seedu.address.commons.exceptions.IllegalValueException;
 /**
  * Represents a WebLink in the address book.
  * Guarantees: immutable; name is valid as declared in {@link #isValidWebLink(String)}
+ * TODO: only accept twitter facebook linkedin and instgram links
  */
 public class WebLink {
 
-    public static final String MESSAGE_WEB_LINK_CONSTRAINTS = "it should be a web link you want to stalk.";
-    public static final String WEB_LINK_VALIDATION_REGEX = "^\\S+";
+    public static final String MESSAGE_WEB_LINK_CONSTRAINTS = "Hi, only facebook, instagram, linkedin and twitter links will be accepted:)";
+    public static final String WEB_LINK_VALIDATION_REGEX = "^^.*(facebook.com|instagram.com|linkedin.com|twitter.com).*$";
 
     public final String webLinkInput;
 
