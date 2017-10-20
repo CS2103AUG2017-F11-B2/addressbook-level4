@@ -3,6 +3,8 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
 
@@ -162,6 +164,22 @@ public class Person implements ReadOnlyPerson {
     public void setWebLinks(Set<WebLink> replacement) {
         webLinks.set(new UniqueWebLinkList(replacement));
     }
+
+    /**
+     * returns a ArrayList of string websites for UI usage.
+     * @code WebLinkUtil for the list of webLinkTags can be used as category.
+     */
+    public ArrayList<String> listOfWebLinkByCategory (String category){
+        ArrayList<String> outputWebLinkList = new ArrayList<String>();
+        for(Iterator<WebLink> iterateWebLinkSet = getWebLinks().iterator(); iterateWebLinkSet.hasNext();){
+            WebLink checkWebLink = iterateWebLinkSet.next();
+            if(checkWebLink.toStringWebLinkTag().equals(category)){
+                outputWebLinkList.add(checkWebLink.toStringWebLink());
+            }
+        }
+        return outputWebLinkList;
+    }
+
 
     @Override
     public boolean equals(Object other) {

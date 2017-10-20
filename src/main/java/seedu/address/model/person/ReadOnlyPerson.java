@@ -1,5 +1,6 @@
 package seedu.address.model.person;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 import javafx.beans.property.ObjectProperty;
@@ -8,7 +9,7 @@ import seedu.address.model.tag.UniqueTagList;
 import seedu.address.model.weblink.UniqueWebLinkList;
 import seedu.address.model.weblink.WebLink;
 /**
- * A read-only immutable interface for a Person in the addressbook.
+ * A read-only immutable interface for a Person in the address book.
  * Implementations should guarantee: details are present and not null, field values are validated.
  */
 public interface ReadOnlyPerson {
@@ -27,6 +28,7 @@ public interface ReadOnlyPerson {
     Set<Tag> getTags();
     ObjectProperty<UniqueWebLinkList> webLinkProperty();
     Set<WebLink> getWebLinks();
+    ArrayList<String> listOfWebLinkByCategory(String webLinkTag);
 
 
     /**
