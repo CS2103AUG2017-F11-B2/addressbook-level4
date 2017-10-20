@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Set;
 
 import javafx.beans.property.ObjectProperty;
-import seedu.address.model.tag.Tag;
-import seedu.address.model.tag.UniqueTagList;
 import seedu.address.model.person.weblink.UniqueWebLinkList;
 import seedu.address.model.person.weblink.WebLink;
+import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.UniqueTagList;
+
 /**
  * A read-only immutable interface for a Person in the address book.
  * Implementations should guarantee: details are present and not null, field values are validated.
