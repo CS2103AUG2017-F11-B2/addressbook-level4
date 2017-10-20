@@ -1,5 +1,6 @@
 package seedu.address.model.util;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ public class SampleDataUtil {
     public static Person[] getSamplePersons() {
         try {
             return new Person[] {
-                new Person(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
+                new Person(new Name("Alex Yeoh"), new Phone("87438807"), getEmailSet("alexyeoh@example.com"),
                     new Address("Blk 30 Geylang Street 29, #06-40"), new Remark(""),
                     getTagSet("friends"), getWebLinkSet("https://www.facebook.com/Phua.Han.Siang")),
                 new Person(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
@@ -69,6 +70,17 @@ public class SampleDataUtil {
         }
 
         return tags;
+    }
+    /**
+     * @return a email set containing the list of strings given
+     * @throws IllegalValueException
+     * */
+    public static ArrayList<Email> getEmailSet(String... emails) throws IllegalValueException{
+        ArrayList<Email> emailList = new ArrayList();
+        for (String e : emails) {
+            emailList.add(new Email(e));
+        }
+        return emailList;
     }
 
     public static Set<WebLink> getWebLinkSet(String... strings) throws IllegalValueException {
