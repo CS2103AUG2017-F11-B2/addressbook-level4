@@ -26,6 +26,7 @@ import seedu.address.logic.commands.WebCommand;
  */
 public class AutoCompleteSuggestions {
     private static ArrayList<String> suggestionList = new ArrayList<>();
+
     static {
         suggestionList.add(AddCommand.COMMAND_WORD);
         suggestionList.add(AddCommand.MESSAGE_USAGE_EXAMPLE);
@@ -57,7 +58,7 @@ public class AutoCompleteSuggestions {
         suggestionList.add(WebCommand.COMMAND_WORD);
         suggestionList.add(WebCommand.MESSAGE_USAGE_EXAMPLE);
     }
-    
+
     public static ArrayList<String> getSuggestionList() {
         return suggestionList;
     }
