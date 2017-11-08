@@ -6,6 +6,10 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_WEB_LINK;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+
 import seedu.address.model.person.Email;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.UserPerson;
@@ -19,13 +23,18 @@ public class ShareCommand extends Command {
     public static final String COMMAND_WORD = "share";
     public static final String COMMAND_ALIAS = "sh";
 
-    public static final String MESSAGE_SUCCESS = "Add Command generated. \n%1$s";
+    public static final String MESSAGE_SUCCESS = "Add Command generated. Copied to clipboard! \n%1$s";
 
 
     @Override
     public CommandResult execute() {
         UserPerson userPerson = model.getUserPerson();
         String result = addCommandBuilder(userPerson);
+
+        StringSelection selection = new StringSelection(result);
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(selection, selection);
+
         return new CommandResult(String.format(MESSAGE_SUCCESS, result));
     }
 
