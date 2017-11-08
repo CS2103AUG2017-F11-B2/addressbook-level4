@@ -6,7 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_WEB_LINK;
 
-import java.awt.*;
+import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 
@@ -54,13 +54,13 @@ public class ShareCommand extends Command {
                 .append(" ")
                 .append(PREFIX_ADDRESS)
                 .append(src.getPhone());
-        for (Email email : src.getEmail()){
+        for (Email email : src.getEmail()) {
             builder.append(" ")
                     .append(PREFIX_EMAIL)
                     .append(email);
         }
 
-        for (WebLink webLink : src.getWebLinks()){
+        for (WebLink webLink : src.getWebLinks()) {
             builder.append(" ")
                     .append(PREFIX_WEB_LINK)
                     .append(webLink.toStringWebLink());

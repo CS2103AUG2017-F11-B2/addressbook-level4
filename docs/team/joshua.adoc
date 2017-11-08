@@ -96,7 +96,7 @@ book and user contact card. A GUI will allow ease of user profile editing as wel
 
 #Start of Extract [from: User Guide]#
 
-include::../UserGuide.adoc[tag=ShareCommand]
+include::../UserGuide.adoc[tag=shareCommand]
 
 #End of Extract#
 
