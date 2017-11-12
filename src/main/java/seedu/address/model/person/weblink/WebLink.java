@@ -18,7 +18,7 @@ import seedu.address.commons.util.WebLinkUtil;
  */
 public class WebLink {
 
-    private static final String MESSAGE_WEB_LINK_CONSTRAINTS = "please enter a valid weblink.";
+    private static final String MESSAGE_WEB_LINK_CONSTRAINTS = "please enter a valid weblink with http or https.";
     private static final String WEB_LINK_VALIDATION_REGEX = "^(https?)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
     private static final String DEFAULT_TAG = "others";
 
