@@ -24,7 +24,7 @@ public class SampleUserPersonUtil {
             ArrayList<Email> emails = new ArrayList<Email>();
             emails.add(new Email("default@default.com"));
             HashSet<WebLink> webLinks = new HashSet<>();
-            webLinks.add(new WebLink("default@facebook.com"));
+            webLinks.add(new WebLink("https://www.facebook.com/default"));
             return new Person (new Name("Default"), new Phone("00000000"), emails,
                             new Address("Default"), new Remark(""), new HashSet<Tag>(), webLinks);
         } catch (IllegalValueException e) {
@@ -37,7 +37,7 @@ public class SampleUserPersonUtil {
             ArrayList<Email> emails = new ArrayList<Email>();
             emails.add(new Email("dummy@dummy.com"));
             HashSet<WebLink> webLinks = new HashSet<>();
-            webLinks.add(new WebLink("default@facebook.com"));
+            webLinks.add(new WebLink("https://www.facebook.com/default"));
             return new Person (new Name("Dummy"), new Phone("11111111"), emails,
                     new Address("Dummy"), new Remark(""), new HashSet<Tag>(), webLinks);
         } catch (IllegalValueException e) {
