@@ -196,7 +196,7 @@ Remark:  Tags:  WebLinks: [https://www.twitter.com/andrew]
 *Expected result:* Andrew’s address field is now empty, signified by a ‘-’ in the DetailedPersonCard. The Home icon in the
 PersonListPanel for Andrew will also be greyed out. +
 *Result Displayed:*  Edited Person: Andrew Phone: - Email: [andrew@hotmail.com] Address: - Remark:  Tags:  WebLinks:
-[https://www.twitter.com/andrew] + 
+[https://www.twitter.com/andrew] +
 
 *CommandBox Input:* `edit 1 w/` +
 *Expected result:* Andrew’s weblink field is now empty, signified by the removal of the twitter link in the DetailedPersonCard.
@@ -352,7 +352,7 @@ delete the weblink so that it is now blank. Press `Enter` on your keyboard. +
 *Expected result:* The User Profile Window closes. As address and weblinks are optional values, blank values are
 valid values. +
 If you bring up the User Profile Window again, you should see Name “Alan”,
-Email “alan@hotmail.com”, Phone “98765432”, Address and WebLinks blank.
+Email “alan@hotmail.com”, Phone “98765432”, Address "-" and WebLinks blank.
 Hit cancel to close the window without saving.
 
 == Update Command ==
@@ -368,5 +368,5 @@ Remark:  Tags:  WebLinks: [https://www.facebook.com/TomCruise]
 == Share Command ==
 *Command box input:* `share` +
 *Expected outcome:* An add command for the User Profile contact will be generated. It is automatically copied to your clipboard. +
-*Result Displayed:* add n/Tom Cruise p/98765432 e/alan@hotmail.com w/https://www.facebook.com/TomCruise
+*Result Displayed:* add n/Tom Cruise p/98765432  e/alan@hotmail.com w/https://www.facebook.com/TomCruise
 
