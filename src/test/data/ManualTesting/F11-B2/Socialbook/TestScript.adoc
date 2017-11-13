@@ -25,8 +25,9 @@ Command Box is at the bottom, and this is where you will enter your CLI Commands
 
 We have prepared sample test data along with this test script to aid you in manual testing. You can find the relevant
 test data named SampleData.xml in the same folder that you found this TestScript.adoc file. If the data folder does not exist,
-launch the addressbook first, then close it. The data folder will now be generated. Delete the “addressbook.xml”
-file in your data folder, then put a copy of this “SampleData.xml” file in the data folder and rename it to “addresbook.xml”.
+launch the addressbook first, then close it. The data folder will now be generated. If there is an "addressbook.xml" file
+present (if you modified the sample data), delete the "addressbook.xml" file. Then or otherwise, put a copy of this “SampleData.xml” file
+in the data folder and rename it to “addresbook.xml”.
 You are now ready to begin testing.
 
 == ChangeTheme Command ==
