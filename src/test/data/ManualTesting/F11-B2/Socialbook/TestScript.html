@@ -467,8 +467,9 @@ Command Box is at the bottom, and this is where you will enter your CLI Commands
 <div class="paragraph">
 <p>We have prepared sample test data along with this test script to aid you in manual testing. You can find the relevant
 test data named SampleData.xml in the same folder that you found this TestScript.adoc file. If the data folder does not exist,
-launch the addressbook first, then close it. The data folder will now be generated. Delete the “addressbook.xml”
-file in your data folder, then put a copy of this “SampleData.xml” file in the data folder and rename it to “addresbook.xml”.
+launch the addressbook first, then close it. The data folder will now be generated. If there is an "addressbook.xml" file
+present (if you modified the sample data), delete the "addressbook.xml" file. Then or otherwise, put a copy of this “SampleData.xml” file
+in the data folder and rename it to “addresbook.xml”.
 You are now ready to begin testing.</p>
 </div>
 </div>
@@ -883,7 +884,7 @@ delete the weblink so that it is now blank. Press <code>Enter</code> on your key
 <strong>Expected result:</strong> The User Profile Window closes. As address and weblinks are optional values, blank values are
 valid values.<br>
 If you bring up the User Profile Window again, you should see Name “Alan”,
-Email “<a href="mailto:alan@hotmail.com">alan@hotmail.com</a>”, Phone “98765432”, Address and WebLinks blank.
+Email “<a href="mailto:alan@hotmail.com">alan@hotmail.com</a>”, Phone “98765432”, Address "-" and WebLinks blank.
 Hit cancel to close the window without saving.</p>
 </div>
 </div>
@@ -910,14 +911,14 @@ Remark:  Tags:  WebLinks: [<a href="https://www.facebook.com/TomCruise" class="b
 <div class="paragraph">
 <p><strong>Command box input:</strong> <code>share</code><br>
 <strong>Expected outcome:</strong> An add command for the User Profile contact will be generated. It is automatically copied to your clipboard.<br>
-<strong>Result Displayed:</strong> add n/Tom Cruise p/98765432 e/alan@hotmail.com w/https://www.facebook.com/TomCruise</p>
+<strong>Result Displayed:</strong> add n/Tom Cruise p/98765432  e/alan@hotmail.com w/https://www.facebook.com/TomCruise</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 23:04:07 SGT
+Last updated 2017-11-13 23:39:51 SGT
 </div>
 </div>
 </body>
