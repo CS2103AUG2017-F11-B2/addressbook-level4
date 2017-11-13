@@ -126,7 +126,7 @@ Further enhancements to be implemented: Share other contacts in the addressbook 
 * Participated in 1.4 bug tracking (Issues https://github.com/CS2103AUG2017-T10-B2/main/issues/82[#82], https://github.com/CS2103AUG2017-T10-B2/main/issues/83[#83], https://github.com/CS2103AUG2017-W14-B4/main/issues/109[#109], https://github.com/CS2103AUG2017-W14-B4/main/issues/112[#112])
 * Implemented workaround for Travis redirecting links (https://github.com/CS2103AUG2017-F11-B2/main/pull/150)[#150]
 * Did a rough check of documentation to update missing parts on behalf of team (https://github.com/CS2103AUG2017-F11-B2/main/pull/151)[#151]
-* Ran through the Test Script manually
+* Ran through the Test Script manually, hotfixing bugs
 
 == Project: PowerPointLabs
 
